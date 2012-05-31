@@ -9,9 +9,6 @@
 #include "Commands/Drivebase/ShiftersShiftUp.h"
 #include "Commands/Drivebase/ShiftersShiftDown.h"
 
-#include "Commands/Shooter/ShooterDoNothing.h"
-//#include "Commands/Shooter/ShooterSpeedSet.h"
-//#include "Commands/Shooter/ShooterIncrement.h"
 #include "Commands/Shooter/KillShooter.h"
 #include "Commands/Shooter/ShooterLoad.h"
 #include "Commands/Shooter/ShooterUnload.h"

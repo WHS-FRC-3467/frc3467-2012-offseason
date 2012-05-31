@@ -1,6 +1,5 @@
 #include "Shooter.h"
 #include "../Robotmap.h"
-#include "../Commands/Shooter/ShooterDoNothing.h"
 #include "../Commands/Shooter/SetShooterSpeedPID.h"
 #include "WPILib.h"
 
@@ -70,33 +69,38 @@ void Shooter::UsePIDOutput(double output)
 
 }
 
-void Shooter::doNothing() {
-
-}
-
 void Shooter::killShooter() {
 	SetSetpoint(0);
 }
 
 void Shooter::updateMotorSpeeds()
 {
-	float voltage = m_ds->GetBatteryVoltage();
 	UINT8 syncGroup = 0x10;
 
+	// Check the  current battery voltage; we will use it to adjust the shooter speed
+	float voltage = m_ds->GetBatteryVoltage();
+
+	// If either Jag has been power cycled since last time we came through, reinintialize them both
 	if (motor1->GetPowerCycled() || motor2->GetPowerCycled())
 		configJags();
 	
+	// Here is where we normalize the commanded speed, based on the current battery voltage
 	currSpeed = (currSpeed * 11.5)/voltage;
 //	printf("V: %f    S: %f\n", voltage, currSpeed);
 	
+	// Don't let commanded speed go to 1.0, and don't let it go negative
 	if (currSpeed > 0.99)
 		currSpeed = 0.99;
 	else if (currSpeed < 0.0)
 		currSpeed = 0.0;
 	
+	// Set up the desired motor speeds, but don't send the commands to the motors yet...
 	motor1->Set(currSpeed, syncGroup);
 	motor2->Set(currSpeed, syncGroup);
 
+	// Now tell the motors the new speed AT THE SAME TIME.
+	// (This should prevent any overloading of the Jags that might
+	// happen if they didn't come up to speed at the same time)
 	CANJaguar::UpdateSyncGroup(syncGroup);
 
 }

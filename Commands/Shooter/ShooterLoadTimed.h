@@ -4,7 +4,7 @@
 #include "../../CommandBase.h"
 
 /**
- * This is a simple command that runs the ball shooter roller.
+ * This is a command that runs the ball shooter feed roller for a specified time.
  */
 class ShooterLoadTimed: public CommandBase {
 public:

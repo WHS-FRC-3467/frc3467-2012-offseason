@@ -34,7 +34,6 @@ public:
 	void stopFeed();
 	void InitDefaultCommand();
 	void killShooter();
-	void doNothing();
 	
 };
 

@@ -1,6 +1,5 @@
 #include "Shooter.h"
 #include "../Robotmap.h"
-#include "../Commands/Shooter/ShooterDoNothing.h"
 #include "../Commands/Shooter/ShooterNoFeed.h"
 
 ShooterLoader::ShooterLoader() : Subsystem("ShooterLoader")
@@ -9,7 +8,7 @@ ShooterLoader::ShooterLoader() : Subsystem("ShooterLoader")
 }
     
 /**
- * Initialize the default command to be {@link ShooterDoNothing}.
+ * Initialize the default command to be {@link ShooterNoFeed}.
  */
 void ShooterLoader::InitDefaultCommand()
 {

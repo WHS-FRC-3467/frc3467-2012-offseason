@@ -1,8 +1,8 @@
 #include "ShooterLoad.h"
 
     /**
-     * Initialize the command so that it requires the BallCollector. This means it will
-     * be interrupted if another command requiring the BallCollector is run.
+     * Initialize the command so that it requires the ShooterLoader. This means it will
+     * be interrupted if another command requiring the ShooterLoader is run.
      */
 	ShooterLoad::ShooterLoad()
 	{
@@ -14,7 +14,7 @@
 	}
 
     /**
-     * Tells the BallCollector to collect balls.
+     * Tells the ShooterLoader to (continue to) run, feeding available balls to the shooter.
      */
 	void ShooterLoad::Execute()
 	{

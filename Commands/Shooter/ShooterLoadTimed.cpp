@@ -1,8 +1,10 @@
 #include "ShooterLoadTimed.h"
 
     /**
-     * Initialize the command so that it requires the BallCollector. This means it will
-     * be interrupted if another command requiring the BallCollector is run.
+     * Initialize the command so that it requires the ShooterLoader. This means it will
+     * be interrupted if another command requiring the ShooterLoader is run.
+     * 
+     * The timeout parameter tells the ShooterLoader how long to run.
      */
 	ShooterLoadTimed::ShooterLoadTimed(float timeout)
 	{
@@ -15,7 +17,7 @@
 	}
 
     /**
-     * Tells the BallCollector to collect balls.
+     * Tells the ShooterLoader to (continue to) run, feeding available balls to the shooter.
      */
 	void ShooterLoadTimed::Execute()
 	{
@@ -23,8 +25,7 @@
 	}
 
     /**
-     * @return false, so that it executes forever or until another command
-     *         interrupts it.
+     * Run until this command instance times out
      */
 	bool ShooterLoadTimed::IsFinished()
 	{
