@@ -22,8 +22,8 @@ private:
 public:
     Arm();
     void SetSetPoint(float setpoint);
-    static const double BOTTOM = 2.12;
-    static const double STOW = 2.49;
+    static const double BOTTOM = 2.14;
+    static const double STOW = 2.47;
     virtual void UsePIDOutput(double output);
     void DirectDrive(float input);
     virtual double ReturnPIDInput();

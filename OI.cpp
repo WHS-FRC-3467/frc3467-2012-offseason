@@ -39,10 +39,10 @@ OI::OI()
 	drive_button12 = new JoystickButton(drivepad, 12);
 
 	oppad = new Gamepad(2);
-	op_button1 = new JoystickButton(oppad, 1);
-	op_button2 = new JoystickButton(oppad, 2);
-	op_button3 = new JoystickButton(oppad, 3);
-	op_button4 = new JoystickButton(oppad, 4);
+	op_button1 = new JoystickButton(oppad, 1);  // X
+	op_button2 = new JoystickButton(oppad, 2);  // A
+	op_button3 = new JoystickButton(oppad, 3);  // B
+	op_button4 = new JoystickButton(oppad, 4);  // Y
 	op_button5 = new JoystickButton(oppad, 5);
 	op_button6 = new JoystickButton(oppad, 6);
 	op_button7 = new JoystickButton(oppad, 7);
@@ -62,8 +62,9 @@ OI::OI()
 	//drive_button2->WhenPressed(new Command());
 	//drive_button3->WhenPressed(new Command());
 	//drive_button4->WhenPressed(new Command());
-	//drive_button5->WhenPressed(new Command());
-	//drive_button6->WhenPressed(new Command());
+	// For Jake
+	drive_button5->WhenPressed(new ShiftersShiftUp());
+	drive_button6->WhenPressed(new ShiftersShiftDown());
 	//drive_button7->WhenPressed(new Command());
 	//drive_button8->WhenPressed(new Command());
 	//drive_button9->WhenPressed(new Command());
@@ -71,10 +72,10 @@ OI::OI()
 	drive_button11->WhenPressed(new ShiftersShiftUp());
 	drive_button12->WhenPressed(new ShiftersShiftDown());
 
-	op_button1->WhenPressed(new SetShooterSpeedPID(SHOOTER_MIN_SPEED));
-	op_button2->WhenPressed(new SetShooterSpeedPID(SHOOTER_LOW_SPEED));
-	op_button3->WhenPressed(new SetShooterSpeedPID(SHOOTER_HI_SPEED));
-	op_button4->WhenPressed(new SetShooterSpeedPID(SHOOTER_MAX_SPEED));
+	op_button1->WhenPressed(new SetShooterSpeedPID(SHOOTER_MIN_SPEED));  // X
+	op_button2->WhenPressed(new SetShooterSpeedPID(SHOOTER_LOW_SPEED));  // A
+	op_button3->WhenPressed(new SetShooterSpeedPID(SHOOTER_HI_SPEED));   // B
+	op_button4->WhenPressed(new SetShooterSpeedPID(SHOOTER_MAX_SPEED));  // Y
 	op_button5->WhileHeld(new ArmCollect());
 	op_button6->WhileHeld(new ShooterUnload());
 	op_button7->WhileHeld(new ArmEject());

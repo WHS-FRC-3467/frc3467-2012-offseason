@@ -11,13 +11,13 @@
 #define MANUAL_OVERRIDE_SHOOTER		1
 
 // Autonomous shooter speed
-#define AUTO_SHOOTER_SPEED			.72
+#define AUTO_SHOOTER_SPEED			.73
 
 // Shooter Speeds
-#define SHOOTER_MIN_SPEED			.65
-#define SHOOTER_LOW_SPEED			.72
-#define SHOOTER_HI_SPEED			.79
-#define SHOOTER_MAX_SPEED			1.0
+#define SHOOTER_MIN_SPEED			.65   // X
+#define SHOOTER_LOW_SPEED			.73	  // A
+#define SHOOTER_HI_SPEED			.79   // B
+#define SHOOTER_MAX_SPEED			1.0   // Y
 
 //Device Definitions
 // Analog Sensors.
